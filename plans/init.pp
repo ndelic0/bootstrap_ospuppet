@@ -30,4 +30,11 @@ plan bootstrap_ospuppet (
   out::message('# Run the deploy command')
   run_command("r10k deploy environment production -pv || exit 1", $targets, '_run_as' => 'root')
 
+  out::message('# Run the puppet apply command')
+  run_command(@("CMD"/L), $targets)
+    /opt/puppetlabs/bin/puppet apply \
+    --environment production \
+    -e "include profile::puppet::puppetserver"
+    | CMD
+
 }
