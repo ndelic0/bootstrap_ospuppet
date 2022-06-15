@@ -1,0 +1,8 @@
+---
+name: bootstrap_ospuppet
+modules:
+- name: theforeman-puppet
+- name: puppetlabs-puppetdb
+- name: puppetlabs-postgresql
+- name: puppetlabs-apt
+- name: puppetlabs-ntp
